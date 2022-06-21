@@ -1,0 +1,7 @@
+mypy==0.931
+pylint==2.12.2
+psycopg[binary]==3.0.14
+google-api-python-client
+google-auth-httplib2
+google-auth-oauthlib
+python-telegram-bot==13.12
