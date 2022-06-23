@@ -60,8 +60,8 @@ class PgStorageService(StorageService):
                 dbname="postgres",
                 user="postgres",
                 password="postgres",
-                # host="db",  # uncomment in case running docker container
-                host="127.0.0.1",  # comment in case running docker container
+                host="db",  # comment in case running without docker container
+                # host="127.0.0.1",  # uncomment in case running without docker container
                 port="5432")
         self.__create_table()
 
@@ -121,7 +121,7 @@ class PgStorageService(StorageService):
                         """,
                         ({"now": now_date, "interval": min_interval}))
                 missed_orders = cur.fetchall()
-        return missed_orders #PgStorageService.__get_column_from_query(missed_orders)
+        return missed_orders
 
     def update_notification_date(self, missed_order_no, notif_date):
         data = PgStorageService.__prepare_data(missed_order_no, notif_date)
@@ -135,10 +135,6 @@ class PgStorageService(StorageService):
                             notif_date = excluded.notif_date;
                         """,
                         data)
-
-    # @staticmethod
-    # def __get_column_from_query(res_query):
-    #     return [row[0] for row in res_query]
 
     @staticmethod
     def __prepare_data(missed_order_no, notif_date: datetime):
@@ -273,7 +269,6 @@ class TgBotService(BotService):
         self.__unsubscrube_user_chat_id = set()
         self.__cache_user_chat_id()
 
-
     def join_db(self, db):
         self.__db = db
 
@@ -346,7 +341,7 @@ if __name__ == "__main__":
     # Parameters:
 
     # Idle time before the next synchronisation of PgStorageService database
-    # and a specific Google Spreadsheet (sleep_time: int
+    # and a specific Google Spreadsheet
     sleep_time: int = 5  # value in seconds
 
     # Minimal time interval between notifications with missed deadlines orders
@@ -375,7 +370,6 @@ if __name__ == "__main__":
             prep_data = sheets_service.get_data()
             db.insert_data(prep_data)
 
-            # now_date = datetime.now()
             missed_orders = db.missed_deadlines_orders(
                     now_date=datetime.now(),
                     min_interval=time_delta)

@@ -26,35 +26,15 @@ Tech stack: \
 ## Сomments for the reviewer
 
 Here are the links to
-[orders_info](https://docs.google.com/spreadsheets/d/1uqzyZbTDQWjVCbGiFlr2pS8GbUQpyW-3bJ3WqCwMz7Eedit#gid=0) (Google Sheets file),
+[orders_info](https://docs.google.com/spreadsheets/d/1uqzyZbTDQWjVCbGiFlr2pS8GbUQpyW-3bJ3WqCwMz7E/edit?usp=sharing) (Google Sheets file),
 [developer_key](https://drive.google.com/file/d/1wbm6PWYKQp2BcLH_HbHQgNrMNoM-Nr5j/view?usp=sharing) (API key, credential to access 'orders_info' from the 'data_flow' service),
 and [telegram_api_token](https://drive.google.com/file/d/1N_BGZZuqXvFFdaJTEaOq1LPSIUDWDUq7/view?usp=sharing). 'orders_info' can be viewed by anyone who has the link. User sales@numbersss.com has 
-permission to edit 'orders_info' and view 'developer_key', 'telegram_api_token'.
+permission to edit `orders_info` and view `developer_key`, `telegram_api_token` on Google Drive.
 
-## Run instruction
-
-Clone this git repository.
-Replace empty `developer_key` file by a file [from here](https://drive.google.com/file/d/1wbm6PWYKQp2BcLH_HbHQgNrMNoM-Nr5j/view?usp=sharing)
-and `telegram_api_token` file by a file [from here](https://drive.google.com/file/d/1N_BGZZuqXvFFdaJTEaOq1LPSIUDWDUq7/view?usp=sharing).
-If you are using a shell capable of running [Bash](https://www.gnu.org/software/bash/) scripts, run the following from the project 
-root directory:
-
-```shell
-$ source ./activate-venv.sh
-```
-
-After that run from the project root directory to run 'data_flow' service:
-
-```shell
-$ python3 ./yo1k/order_management/data_flow.py
-```
-
-See instructions below about PostgreSQL.
 To receive notifications from the telegram bot follow the [link](http://t.me/Yo1k_order_management_bot) 
 or directly add bot with the name '@Yo1k_order_management_bot'.
 
-## Docker instructions (currently does not work)
-### problem with import 'python-telegram-bot' ModuleNotFoundError: No module named 'telegram'
+## Docker instructions
 
 Clone this git repository.
 Replace empty `developer_key` file by a file [from here](https://drive.google.com/file/d/1wbm6PWYKQp2BcLH_HbHQgNrMNoM-Nr5j/view?usp=sharing)
