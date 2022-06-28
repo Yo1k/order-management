@@ -1,6 +1,6 @@
 from __future__ import print_function
 
-from abc import ABC
+from abc import ABC, abstractmethod
 from decimal import Decimal
 import time
 from datetime import datetime, timedelta
@@ -30,25 +30,31 @@ class Data(NamedTuple):
 
 
 class DataService(ABC):
+    @abstractmethod
     def get_data(self) -> Data:
         pass
 
 
 class StorageService(ABC):
+    @abstractmethod
     def insert_data(self, data: Data) -> None:
         pass
 
+    @abstractmethod
     def missed_deadlines_orders(self, now_date, min_interval):
         pass
 
+    @abstractmethod
     def update_notification_date(self, missed_order_no, notif_date):
         pass
 
+    @abstractmethod
     def finalize(self) -> None:
         pass
 
 
 class BotService(ABC):
+    @abstractmethod
     def send_notification(self, information):
         pass
 
