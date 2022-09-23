@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Orders information</title>
+    <link
+      href="{{ url_for('static', filename='css/bootstrap.min.css') }}"
+      rel="stylesheet"
+    >
+    <style>
+      .table-striped {
+        max-height: 850px;
+        overflow: auto;
+        display: inline-block;
+      }
+      th {
+        position: sticky;
+        top: 0;
+        vertical-align: bottom;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <p>Orders information</p>
+        <script>
+          document.getElementById("demo").innerHTML = "Hello JavaScript!";
+        </script>
+        <div class="col-7">
+          <p>Here will be plot</p>
+          <!--      JS smth-->
+      <div id="like_button_container"></div>
+<!--      JS smth-->
+        </div>
+        <div class="col-5">
+          <div>
+            <select class="form-control">
+            <option value="USD" selected>USD</option>
+            <option value="RUB">RUB</option>
+            </select>
+          </div>
+          <div class="table-wrapper">
+            <table class="table table-striped table-bordered">
+              <thead class="table-dark">
+                <tr>
+                  <th scope="col">order &#8470;</th>
+                  <th scope="col">cost in USD</th>
+                  <th scope="col">delivery date</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for row in data %}
+                  <tr>
+                    <td>{{ row.order_no }}</td>
+                    <td>{{ row.cost_usd }}</td>
+                    <td>{{ row.deliv_date }}</td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/build/like_button.min.js') }}"></script>
+  </body>
+</html>

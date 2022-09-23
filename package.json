@@ -1,0 +1,36 @@
+{
+  "name": "order-management",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:dev": "browserify -t [ babelify --presets [ @babel/preset-env @babel/preset-react ] ] yo1k/order_management/web_app/static/js/src/like_button.js -o yo1k/order_management/web_app/static/js/build/like_button.js",
+    "build:min": "npx terser -c -m -o yo1k/order_management/web_app/static/js/build/like_button.min.js -- yo1k/order_management/web_app/static/js/build/like_button.js",
+    "build": "npm run build:dev && npm run build:min"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yo1k/order-management.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Yo1k/order-management/issues"
+  },
+  "homepage": "https://github.com/Yo1k/order-management#readme",
+  "devDependencies": {
+    "@babel/preset-env": "^7.19.0",
+    "@babel/preset-react": "^7.18.6",
+    "babelify": "^10.0.0",
+    "browserify": "^17.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "dependencies": {
+    "@babel/eslint-parser": "^7.18.9",
+    "recharts": "^2.1.12",
+    "terser": "^5.15.0"
+  }
+}

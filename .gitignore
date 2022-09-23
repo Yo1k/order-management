@@ -2,6 +2,7 @@
 *.swp
 *.swo
 order-management-venv*/
+node_modules
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
